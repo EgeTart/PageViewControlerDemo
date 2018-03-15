@@ -17,29 +17,28 @@ class MusicController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        musicTableView.registerNib(UINib(nibName: "CommonCell", bundle: nil), forCellReuseIdentifier: "CommonCell")
+        musicTableView.register(UINib(nibName: "CommonCell", bundle: nil), forCellReuseIdentifier: "CommonCell")
         musicTableView.dataSource = self
         musicTableView.delegate = self
         
-        GetDataFromDouBan.getData("https://api.douban.com/v2/music/search", type: "musics", keyword: "梁静茹") { (data) -> Void in
+        GetDataFromDouBan.getData(dataURL: "https://api.douban.com/v2/music/search", type: "musics", keyword: "梁静茹") { (data) -> Void in
             self.musicResults = MusicResults(dicts: data)
             self.musicTableView.reloadData()
         }
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         //发送一个名字为currentPageChanged，附带object的值代表当前页面的索引
-        NSNotificationCenter.defaultCenter().postNotificationName("currentPageChanged", object: 1)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "currentPageChanged"), object: 1)
     }
     
 }
 
 extension MusicController: UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let result = musicResults {
             return result.musics.count
         }
@@ -47,12 +46,11 @@ extension MusicController: UITableViewDataSource {
         return 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let music = musicResults!.musics[indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("CommonCell", forIndexPath: indexPath) as! CommonCell
-        cell.coverImageView.sd_setImageWithURL(NSURL(string: music.imageURL))
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommonCell", for: indexPath) as! CommonCell
+        cell.coverImageView.sd_setImage(with: URL(string: music.imageURL))
         cell.titleLabel.text = music.title
         
         return cell
@@ -60,12 +58,12 @@ extension MusicController: UITableViewDataSource {
 }
 
 extension MusicController: UITableViewDelegate {
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

@@ -18,29 +18,28 @@ class MovieController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        movieTableView.registerNib(UINib(nibName: "CommonCell", bundle: nil), forCellReuseIdentifier: "CommonCell")
+        movieTableView.register(UINib(nibName: "CommonCell", bundle: nil), forCellReuseIdentifier: "CommonCell")
         movieTableView.dataSource = self
         movieTableView.delegate = self
         
-        GetDataFromDouBan.getData("https://api.douban.com/v2/movie/search", type: "subjects", keyword: "张艺谋") { (data) -> Void in
+        GetDataFromDouBan.getData(dataURL: "https://api.douban.com/v2/movie/search", type: "subjects", keyword: "张艺谋") { (data) -> Void in
             self.movieResults = MovieResults(dicts: data)
             self.movieTableView.reloadData()
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         //发送一个名字为currentPageChanged，附带object的值代表当前页面的索引
-        NSNotificationCenter.defaultCenter().postNotificationName("currentPageChanged", object: 0)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "currentPageChanged"), object: 0)
     }
 
 }
 
 //MARK: - UITableViewDataSource
 extension MovieController: UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let result = movieResults {
             return result.movies.count
         }
@@ -48,12 +47,11 @@ extension MovieController: UITableViewDataSource {
         return 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let movie = movieResults!.movies[indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("CommonCell", forIndexPath: indexPath) as! CommonCell
-        cell.coverImageView.sd_setImageWithURL(NSURL(string: movie.imageURL))
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommonCell", for: indexPath) as! CommonCell
+        cell.coverImageView.sd_setImage(with: URL(string: movie.imageURL))
         cell.titleLabel.text = movie.title
         
         return cell
@@ -62,11 +60,11 @@ extension MovieController: UITableViewDataSource {
 
 //MARK: - UITableViewDelegate
 extension MovieController: UITableViewDelegate {
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

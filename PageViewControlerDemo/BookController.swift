@@ -17,28 +17,27 @@ class BookController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bookTableView.registerNib(UINib(nibName: "CommonCell", bundle: nil), forCellReuseIdentifier: "CommonCell")
+        bookTableView.register(UINib(nibName: "CommonCell", bundle: nil), forCellReuseIdentifier: "CommonCell")
         bookTableView.dataSource = self
         bookTableView.delegate = self
         
-        GetDataFromDouBan.getData("https://api.douban.com/v2/book/search", type: "books", keyword: "swift") { (data) -> Void in
+        GetDataFromDouBan.getData(dataURL: "https://api.douban.com/v2/book/search", type: "books", keyword: "swift") { (data) -> Void in
             self.bookResults = BookResults(dicts: data)
             self.bookTableView.reloadData()
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         //发送一个名字为currentPageChanged，附带object的值代表当前页面的索引
-        NSNotificationCenter.defaultCenter().postNotificationName("currentPageChanged", object: 2)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "currentPageChanged"), object: 2)
     }
     
 }
 
 extension BookController: UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let result = bookResults {
             return result.books.count
         }
@@ -46,12 +45,11 @@ extension BookController: UITableViewDataSource {
         return 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let music = bookResults!.books[indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("CommonCell", forIndexPath: indexPath) as! CommonCell
-        cell.coverImageView.sd_setImageWithURL(NSURL(string: music.imageURL))
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CommonCell", for: indexPath) as! CommonCell
+        cell.coverImageView.sd_setImage(with: URL(string: music.imageURL))
         cell.titleLabel.text = music.title
         
         return cell
@@ -59,11 +57,11 @@ extension BookController: UITableViewDataSource {
 }
 
 extension BookController: UITableViewDelegate {
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

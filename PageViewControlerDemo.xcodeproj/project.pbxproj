@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA01E4823029CB1E5D804B70 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A15D7AB3C5E703F91FE386 /* Pods.framework */; };
+		76860C8ED8409261FEFA10E4 /* Pods_PageViewControlerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D29287D9A5F821BEFB4FED /* Pods_PageViewControlerDemo.framework */; };
 		F69105B71C94248200BC9C21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69105B61C94248200BC9C21 /* AppDelegate.swift */; };
 		F69105BC1C94248200BC9C21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F69105BA1C94248200BC9C21 /* Main.storyboard */; };
 		F69105BE1C94248200BC9C21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F69105BD1C94248200BC9C21 /* Assets.xcassets */; };
@@ -26,9 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EAB6D443628771A8164F5DA /* Pods-PageViewControlerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PageViewControlerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PageViewControlerDemo/Pods-PageViewControlerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		1ACDA976A9AD941AFC448E5C /* Pods-PageViewControlerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PageViewControlerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-PageViewControlerDemo/Pods-PageViewControlerDemo.release.xcconfig"; sourceTree = "<group>"; };
 		31A15D7AB3C5E703F91FE386 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4245B95DFF6C50EFC1B696E6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		96C7FC64411DDFE8821E76D5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D5D29287D9A5F821BEFB4FED /* Pods_PageViewControlerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PageViewControlerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69105B31C94248200BC9C21 /* PageViewControlerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PageViewControlerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69105B61C94248200BC9C21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F69105BB1C94248200BC9C21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA01E4823029CB1E5D804B70 /* Pods.framework in Frameworks */,
+				76860C8ED8409261FEFA10E4 /* Pods_PageViewControlerDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +68,8 @@
 			children = (
 				4245B95DFF6C50EFC1B696E6 /* Pods.debug.xcconfig */,
 				96C7FC64411DDFE8821E76D5 /* Pods.release.xcconfig */,
+				0EAB6D443628771A8164F5DA /* Pods-PageViewControlerDemo.debug.xcconfig */,
+				1ACDA976A9AD941AFC448E5C /* Pods-PageViewControlerDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -73,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				31A15D7AB3C5E703F91FE386 /* Pods.framework */,
+				D5D29287D9A5F821BEFB4FED /* Pods_PageViewControlerDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -173,12 +179,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F69105C51C94248200BC9C21 /* Build configuration list for PBXNativeTarget "PageViewControlerDemo" */;
 			buildPhases = (
-				4B24A288E25F0EE5C0104A72 /* Check Pods Manifest.lock */,
+				4B24A288E25F0EE5C0104A72 /* [CP] Check Pods Manifest.lock */,
 				F69105AF1C94248200BC9C21 /* Sources */,
 				F69105B01C94248200BC9C21 /* Frameworks */,
 				F69105B11C94248200BC9C21 /* Resources */,
-				211A2F9276CC0CBAB86B2C0C /* Embed Pods Frameworks */,
-				203DA89A4D0B23D352DA27BB /* Copy Pods Resources */,
+				211A2F9276CC0CBAB86B2C0C /* [CP] Embed Pods Frameworks */,
+				203DA89A4D0B23D352DA27BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -201,6 +207,7 @@
 				TargetAttributes = {
 					F69105B21C94248200BC9C21 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 56UJ9HGY4E;
 					};
 				};
 			};
@@ -237,49 +244,57 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		203DA89A4D0B23D352DA27BB /* Copy Pods Resources */ = {
+		203DA89A4D0B23D352DA27BB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PageViewControlerDemo/Pods-PageViewControlerDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		211A2F9276CC0CBAB86B2C0C /* Embed Pods Frameworks */ = {
+		211A2F9276CC0CBAB86B2C0C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PageViewControlerDemo/Pods-PageViewControlerDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PageViewControlerDemo/Pods-PageViewControlerDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4B24A288E25F0EE5C0104A72 /* Check Pods Manifest.lock */ = {
+		4B24A288E25F0EE5C0104A72 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PageViewControlerDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -410,25 +425,29 @@
 		};
 		F69105C61C94248200BC9C21 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4245B95DFF6C50EFC1B696E6 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 0EAB6D443628771A8164F5DA /* Pods-PageViewControlerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 56UJ9HGY4E;
 				INFOPLIST_FILE = PageViewControlerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.PageViewControlerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.PageViewControllerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		F69105C71C94248200BC9C21 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96C7FC64411DDFE8821E76D5 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 1ACDA976A9AD941AFC448E5C /* Pods-PageViewControlerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 56UJ9HGY4E;
 				INFOPLIST_FILE = PageViewControlerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.PageViewControlerDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.PageViewControllerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
